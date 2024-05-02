@@ -1,0 +1,73 @@
+@import "compass/reset";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 10000px; /* Increased height for demonstration */
+  background-color: black;
+}
+
+.stars, .twinkling, .clouds {
+	position:fixed;
+	top:0; bottom:0;
+	left:0; right:0;
+	width:100%; height:100%;
+  z-index: 90;
+}
+
+.stars {
+	z-index: 0;
+	background: #000 url('https://i.ibb.co/g91MwKZ/stars.png') repeat top center;
+}
+
+.twinkling{
+	z-index: 1;
+	background:transparent url('https://i.ibb.co/pnJQm6V/twinkling.png') repeat top center;
+	animation: move-twink-back 200s linear infinite;
+}
+
+.clouds{
+	z-index: 2;
+    background:transparent url('https://i.ibb.co/BsG8rYZ/clouds.png') repeat top center;
+	animation: move-clouds-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+	from {background-position:0 0;}
+	to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+	from {background-position:0 0;}
+	to {background-position:10000px 0;}
+}
+
+#content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 90;
+
+}
+
+.gradient {
+  background: radial-gradient(transparent 0.0005%, black);
+  box-shadow: 0 30px 40px rgba(0,0,0,.1);
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.image1, .image2 {
+  background: (transparent 50%, black);
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

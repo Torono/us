@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+    <div class='stars'></div>
+    <div class='twinkling'></div>
+    <div class='clouds'></div>
+    <div id="content">
+        <img class="image1" src="us.png" />
+        <img id="img" class="image2" src="image.png" />
+        <div class="gradient"></div>
+    </div>
+
+    <script>
+
+const image = document.getElementById('img');
+
+// Event listener for scrolling
+window.addEventListener('scroll', function() {
+    // Calculate the percentage scrolled
+    const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+    // Calculate opacity based on scroll percentage
+    const opacity = 1 - (scrollPercentage / 100);
+    console.log(opacity);
+    // Set the opacity of the image
+    img.style.opacity = opacity.toFixed(2); // Limit decimal places
+});
+
+    </script>
+</body>
+</html>
