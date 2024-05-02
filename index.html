@@ -1,15 +1,16 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preload" href="image.png" as="image"> 
+    <link rel="preload" href="us.png" as="image"> 
 </head>
 
 <body>
     <!-- Preload the audio -->
-    <audio id="audio" style="display: none;">
+    <audio id="audio" preload="auto">
         <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -24,11 +25,11 @@
     </div>
 
     <script>
-
-        // Wait for the page to fully load
+        const audio = document.getElementById('audio');
+        
+        // Play the audio when the page is fully loaded
         window.addEventListener('load', function() {
-            // When the page is loaded, play the preloaded audio
-            document.getElementById('audio').play();
+            audio.play();
         });
 
         const image = document.getElementById('img');
@@ -44,7 +45,6 @@
             // Set the opacity of the image
             img.style.opacity = opacity.toFixed(2); // Limit decimal places
         });
-
     </script>
 </body>
 </html>
