@@ -26,11 +26,14 @@
 
     <script>
         const audio = document.getElementById('audio');
-        
-        // Play the audio when the page is fully loaded
-        window.addEventListener('load', function() {
+
+        // Function to play the audio
+        function playAudio() {
             audio.play();
-        });
+        }
+
+        // Play the audio when the page is fully loaded
+        window.addEventListener('load', playAudio);
 
         const image = document.getElementById('img');
 
@@ -48,3 +51,7 @@
     </script>
 </body>
 </html>
+
+
+
+
