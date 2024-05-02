@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="preload" href="image.png" as="image"> 
-    <link rel="preload" href="us.png" as="image"> 
 </head>
 
 <body>
-    <audio autoplay loop preload="auto">
-    <source src="music.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <!-- Preload the audio -->
+    <audio id="audio" style="display: none;">
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
     <div class='stars'></div>
     <div class='twinkling'></div>
     <div class='clouds'></div>
@@ -25,19 +25,25 @@
 
     <script>
 
-const image = document.getElementById('img');
+        // Wait for the page to fully load
+        window.addEventListener('load', function() {
+            // When the page is loaded, play the preloaded audio
+            document.getElementById('audio').play();
+        });
 
-// Event listener for scrolling
-window.addEventListener('scroll', function() {
-    // Calculate the percentage scrolled
-    const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+        const image = document.getElementById('img');
 
-    // Calculate opacity based on scroll percentage
-    const opacity = 1 - (scrollPercentage / 100);
-    console.log(opacity);
-    // Set the opacity of the image
-    img.style.opacity = opacity.toFixed(2); // Limit decimal places
-});
+        // Event listener for scrolling
+        window.addEventListener('scroll', function() {
+            // Calculate the percentage scrolled
+            const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+            // Calculate opacity based on scroll percentage
+            const opacity = 1 - (scrollPercentage / 100);
+            console.log(opacity);
+            // Set the opacity of the image
+            img.style.opacity = opacity.toFixed(2); // Limit decimal places
+        });
 
     </script>
 </body>
